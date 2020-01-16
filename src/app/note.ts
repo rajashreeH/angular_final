@@ -1,12 +1,12 @@
 export class Note {
-  id: Number;
-  title: string;
-  text: string;
-  state: string;
-
+  noteId: Number;
+  noteTitle: string;
+  noteContent: string;
+  noteStatus: string;
+  noteCreatedBy: string;
   constructor() {
-    this.title = '';
-    this.text = '';
-    this.state = 'not-started';
+    this.noteTitle = '';
+    this.noteContent= '';
+    this.noteStatus = 'not-started';
   }
 }

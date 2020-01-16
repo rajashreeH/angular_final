@@ -1,4 +1,13 @@
-<div class="keep-c-note-container">
+<!-- <div class="keep-c-note-container">
 	<app-note [note] = 'note' *ngFor = "let note of notes">
 	</app-note>
+</div> -->
+
+<div class="keep-c-note-container">
+	<!--<div class="notes-card-container">-->
+	<!-- Include the notes collection with each note rendered as a separate NoteComponent -->
+	<h3>{{errorMessage}}</h3>    
+
+<app-note [note]="note" *ngFor="let note of notes"></app-note>		
+
 </div>

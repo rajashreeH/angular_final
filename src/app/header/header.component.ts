@@ -16,4 +16,9 @@ export class HeaderComponent {
     this.isNoteView = true;
     this.routerService.routeToNoteView();
   }
+  logoutUser() {
+    localStorage.removeItem('BearerToken');
+    localStorage.removeItem('userId');
+    this.routerService.routeToLogin();
+  }
 }

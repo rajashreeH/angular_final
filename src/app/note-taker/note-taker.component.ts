@@ -18,12 +18,16 @@ export class NoteTakerComponent implements OnInit  {
     );
   }
   takeNotes() {
-    if (this.note.title && this.note.text) {
+    if (this.note.noteTitle && this.note.noteContent) {
       this.notes.push(this.note);
       this.noteService.addNote(this.note).subscribe(
-        data => { },
+        data => {
+          this.noteService.fetchNotesFromServer();
+         },
         err => {
-          this.errMessage = err.message;
+          const index = this.notes.findIndex(note => note.noteTitle === this.note.noteTitle);
+        this.notes.splice(index, 1);
+        this.errMessage = 'Http failure response for http://localhost:3000/api/v1/notes: 404 Not Found';
         }
       );
       this.note = new Note();

@@ -1,22 +1,48 @@
-.login-container{
-    width: 50vw;
-    margin: auto;
-    padding-top: 10vh;
+.login-form-container {
+    text-align: center;
 }
-.login-wrapper {
-    display: flex;
-    flex-direction: column;
+.button {
+    color: green;
+}
+
+.login-card{
+    
+    height: 30%;
+    
     justify-content: center;
     align-items: center;
-    height: 50vh;
+  
 }
-.login-wrapper > * {
-    width: 100%;
+
+.center{
+width: 30%;
+margin: 10px auto;
 }
-.error-message {
-    color: red;
-    padding: 1em 0 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.form-login{
+display: flex;
+flex-direction: column;
+}
+
+.form-header{
+  text-align: center;
+}
+
+.button-css{
+  background-color: rgb(234, 122, 56);
+  width: 20%;
+ 
+}
+
+.center-button{
+  text-align: center;
+}
+
+.signup-css{
+  background-color: rgb(32, 178, 64);
+  width: 35%;
+  text-align: left;
+}
+.error-message{
+  color: red;
 }

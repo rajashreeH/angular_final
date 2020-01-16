@@ -14,9 +14,9 @@ export class ListViewComponent implements OnInit {
   }
   ngOnInit() {
     this.notesService.getNotes().subscribe(notes => {
-      this.notStartedNotes = notes.filter(note => ('not-started' === note.state));
-      this.startedNotes = notes.filter(note => ('started' === note.state));
-      this.completedNotes = notes.filter(note => ('completed' === note.state));
+      this.notStartedNotes = notes.filter(note => ('not-started' === note.noteStatus));
+      this.startedNotes = notes.filter(note => ('started' === note.noteStatus));
+      this.completedNotes = notes.filter(note => ('completed' === note.noteStatus));
     }, (err) => {});
   }
 }

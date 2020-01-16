@@ -1,22 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import { User } from '../user';
+import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class AuthenticationService {
-  constructor(private httpClient: HttpClient) {  }
-  authenticateUser(data) {
-    return this.httpClient.post('http://localhost:3000/auth/v1/', data);
+
+  private authUrl = 'http://localhost:8089/api/v1/auth';
+  constructor(public http: HttpClient) {
+
   }
-  setBearerToken(token) {
+
+  public authenticateUser(user):Observable<any> {
+    return this.http.post<any>(`${this.authUrl}/login`, user);
+  }
+
+  public createUser(user):Observable<User>{
+    return this.http.post<any>(`${this.authUrl}/register`, user);
+  }
+
+  public setBearerToken(token) {
     localStorage.setItem('bearerToken', token);
   }
-  getBearerToken() {
+
+  public getBearerToken() {
     return localStorage.getItem('bearerToken');
   }
-  isUserAuthenticated(token): Promise<boolean> {
-    return this.httpClient.post('http://localhost:3000/auth/v1/isAuthenticated', {}, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
-    }).map((response) => response['isAuthenticated'])
-      .toPromise();
+
+  public setUserId(userId : string){
+    localStorage.setItem('userId', userId);
+  }
+  public getUserId(){
+    return localStorage.getItem('userId');
   }
 }

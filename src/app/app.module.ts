@@ -26,20 +26,27 @@ import { CanActivateRouteGuard } from './can-activate-route.guard';
 import { AuthenticationService } from './services/authentication.service';
 import { NotesService } from './services/notes.service';
 import { RouterService } from './services/router.service';
+import { SignupComponent } from './signup/signup.component';
+import { UserComponent } from './user/user.component';
+import { UserService } from './services/user.service';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'login',
     component: LoginComponent
   },
+  { path: 'signup', 
+    component: SignupComponent 
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [CanActivateRouteGuard],
+    
+    //canActivate: [CanActivateRouteGuard],
     children: [
       {
         path : '',
@@ -73,7 +80,9 @@ const appRoutes: Routes = [
     NoteTakerComponent,
     NoteViewComponent,
     EditNoteOpenerComponent,
-    EditNoteViewComponent
+    EditNoteViewComponent,
+    SignupComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +104,7 @@ const appRoutes: Routes = [
     AuthenticationService,
     NotesService,
     RouterService,
+    UserService,
     CanActivateRouteGuard
   ],
   bootstrap: [AppComponent],

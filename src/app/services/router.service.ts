@@ -20,6 +20,15 @@ export class RouterService {
       }
     ]);
   }
+
+  routeToEditUserView(userId){
+    this.router.navigate(['user/edit',userId]);
+  }
+
+  routeToSignUp() {
+    this.router.navigate(['signup']);
+  }
+
   routeBack() {
     this.location.back();
   }
